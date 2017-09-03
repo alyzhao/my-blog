@@ -99,7 +99,7 @@ use node express react to build my blog
 
 
 ## 部署发布
-> 1. 应将`react`开发版本切换成生产版本 **[react性能优化](https://discountry.github.io/react/docs/optimizing-performance.html#webpack)
+> 1. 应将`react`开发版本切换成生产版本 [react性能优化](https://discountry.github.io/react/docs/optimizing-performance.html#webpack)
 
 ## 发现
 > 1. express 找不到某个静态资源时会请求两次
