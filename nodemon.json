@@ -5,7 +5,11 @@
 		"node_modules/**",
 		"views/**",
 		"README.md",
-		"public/**"
+		"public/**",
+		".editorconfig",
+		"NOTE.md",
+		"LICENSE",
+		".gitignore"
 	],
 	"verbose": true,
 	"execMap": {

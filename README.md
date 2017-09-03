@@ -85,6 +85,7 @@ use node express react to build my blog
 	},
 	"ext": "js json"
 }
+
 - 使用 supervisor
 
 > 3. react-hot-loader 并没有起作用, 或者本身`react-hot-loader`就没什么卵用? 在热加载中修改`react`组件的`state`能否实现热加载?
