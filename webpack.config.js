@@ -5,7 +5,7 @@ const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true'; 	// 这
 
 module.exports = {
 	entry: {
-		index: ['react-hot-loader/patch', hotMiddlewareScript, path.join(__dirname, './app/index/main.jsx')]
+		index: ['react-hot-loader/patch', hotMiddlewareScript, path.join(__dirname, './app/index/main.js')]
 	},
 	devtool: 'inline-source-map',   // 跟踪错误堆栈
 	module: {

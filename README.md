@@ -31,6 +31,7 @@ use node express react to build my blog
 - 构建 express 服务器, 入口文件 app.js, 使用 ejs 模板引擎, 
 	- 安装 ejs
 	- 安装 serve-static
+	- 安装 
 
 	- 安装 morgan, 用来监听请求
 	- 安装 nodemon, 监听文件修改, 自动重启服务
@@ -59,7 +60,7 @@ use node express react to build my blog
 >> express serve-static 的目录要和 webpack 打包的目录相同 output, 不是这个原因, webpack 生成的文件不经过静态文件资源加载, 不经过 express 的路由, 所以出现这个问题可能是刷新时还未打包好！
 
 > 2. 没有自动刷新, 也没有热更新
->> webpack 实现热加载: 必须在 webpack.config.js 中加上 plugins: [ new webpack.HotModuleReplacementPlugin() ], 且这个热加载是在修改打包文件时才会热加载
+>> webpack 实现热加载: 必须在 webpack.config.js 中加上`plugins: [ new webpack.HotModuleReplacementPlugin() ]`, 且这个热加载是在修改打包文件时才会热加载
 >> 修改其他代码如何实现自动重启服务?
 - 使用 grunt grunt-concurrent grunt-contrib-watch grunt-nodemon, 并配置 grunt
 - 使用 nodemon 	推荐使用, 在 package.json scripts start 设置为 nodemon app.js

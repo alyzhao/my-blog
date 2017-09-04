@@ -4,6 +4,8 @@ const path = require('path');
 const express = require('express');
 const serveStatic = require('serve-static');
 const morgan = require('morgan');
+// const favicon = require('serve-favicon');
+
 
 // webpack相关
 const webpack = require('webpack');
@@ -13,7 +15,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
 // 启动配置
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 const app = express();
 
 // webpack
@@ -50,6 +52,8 @@ require('./routes/route')(app); 	// 加载路由
 app.use(serveStatic(path.join(__dirname, './dist'), {
 	'cacheControl': false 	// 这是个可选 options
 }));
+
+// app.use(favicon(path.join(__dirname, './dist', 'favicon.ico')));	// 保存在缓存中的 
 
 app.listen(port, function() {
 	console.log('app started on port ' + port);

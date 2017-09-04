@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { AppContainer } from 'react-hot-loader';
 
-import { IndexComponent } from './components.jsx';
+import { IndexComponent } from './components.js';
 
  
 const render = function(Component) {
