@@ -38,6 +38,7 @@ app.set('views', viewsDirectories.map((dir) => {
 }));
 app.set('view engine', 'ejs');
 
+// 监听文件修改重启服务器
 if (app.get('env') === 'development') {
 	// 
 	app.set('showStackEror', true);
