@@ -1,0 +1,12 @@
+@screen-sm-min: 768px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+
+ //->LESS代码
+.transition(@property: all; @duration: .2s; @function: ease; @delay: 0s;) {
+	-webkit-transition: @property @duration @function @delay;
+	-moz-transition: @property @duration @function @delay;
+	-ms-transition: @property @duration @function @delay;
+	-o-transition: @property @duration @function @delay;
+	transition: @property @duration @function @delay;
+}

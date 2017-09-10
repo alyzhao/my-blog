@@ -41,6 +41,8 @@ use node express react to build my blog
 		- css-loader 
 		- less-loader less
 		- file-loader      加载图片, 字体
+		- font-awesome 		安装字体文件
+		- font-awesome-webpack 
 
 		- webpack-dev-middleware   			-- 这只是将 bundle 打包的文件放入服务器请求, 与 express 无关
 		- webpack-hot-middleware
@@ -49,8 +51,10 @@ use node express react to build my blog
 - 安装 react react-dom react-hot-loader, `npm install --save-dev react-hot-loader@3.0.0-beta.6` 必须指定版本否则默认安装是1.x版本
 - 安装 babel, npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0
 	- 配置 .babelrc 
+
 - 编码 app.js
 - 编写前端 react 页面
+
 > 2017.9.1 修改了目录结构, 使用 nodemon 监听文件修改, 重启服务, 重新配置 webpack, 基本项目结构搭建完成
 
 

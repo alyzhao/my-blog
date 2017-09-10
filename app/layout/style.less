@@ -1,0 +1,78 @@
+@import (reference) "../public/style/base.less";
+
+.header{
+	width: 100%;
+	height: 65px;
+	position: relative;
+	.header-main {
+		width: 100%;
+		margin: 0 auto;
+		a, a:visited {
+			.transition;
+			white-space: nowrap;
+	        color: #565a5f;
+			& :hover {
+	    	    color: #38b7ea;
+			}
+		}
+		.logo {
+		    white-space: nowrap;
+	        display: inline-block;
+	        float: left;
+	        i {
+        	    margin-right: 5px;
+				display: inline-block;
+			    width: 40px;
+				height: 40px;
+				background-repeat: no-repeat;
+				background-image: url("../public/img/logo.png");
+				-webkit-background-size: 40px 40px;
+				-moz-background-size: 40px 40px;
+				background-size: 40px 40px;
+	        }
+	        .site-title {
+	        	font-size: 16px;
+				display: inline-block;
+				vertical-align: top;
+				font-weight: 600;
+	        }
+		}
+		.logo, .main-nav {
+			height: 40px;
+			line-height: 40px;
+			padding: 12px 15px;
+		}
+
+		.main-nav {
+			display: none;
+			float: left;
+			a {
+				white-space: nowrap;
+	            float: left;
+			    display: block;
+			    padding: 0 15px;
+		        font-weight: 300;
+			}
+		}
+
+	}
+
+
+
+	@media (min-width: @screen-lg-min) {
+		.header-main {
+			width: 1200px;
+		}
+	}
+
+	@media (min-width: @screen-md-min) {
+
+	}
+
+	@media (min-width: @screen-sm-min) {
+		.main-nav {
+			display: block;
+		}
+	}
+
+}
