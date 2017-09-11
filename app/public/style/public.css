@@ -75,3 +75,6 @@ code {
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
   background-color: #f8f8f8;
 }
+.clearfix:before, .clearfix:after{content:"";display:table;line-height:0;}
+.clearfix:after{clear:both;} 
+.clearfix{*zoom:1;}

@@ -9,7 +9,7 @@ function Logo(props) {
 	);
 }
 
-function Menu(props) {
+function Navbar(props) {
 	return (
 		<nav className="main-nav">
 			<a href="/">首页</a>
@@ -19,6 +19,39 @@ function Menu(props) {
 	);
 }
 
+class SearchForm extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { keywords: '' };
+
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+	}
+
+	handleSubmit(event) {
+		event.preventDefault();
+		console.log('submit');
+	}
+
+	handleChange(event) {
+		this.setState({ keywords: event.target.value });
+	}
+
+	render() {
+		return (
+			<div className="search-form">
+				<form onSubmit={this.handleSubmit}>
+					<input type="text" value={this.state.keywords} onChange={this.handleChange} placeholder="搜索" />
+					<button type="submit" className="fa fa-search"></button>
+				</form>
+			</div>
+		);
+	}
+
+}
+
+
+
 class Header extends React.Component {
 	constructor(props) {
 		super(props);
@@ -27,9 +60,10 @@ class Header extends React.Component {
 	render() {
 		return (
 			<div className="header">
-				<div className="header-main">
+				<div className="header-main clearfix">
 					<Logo />
-					<Menu />
+					<Navbar />
+					<SearchForm />
 				</div>
 			</div>
 		);

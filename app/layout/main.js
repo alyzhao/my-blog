@@ -1,4 +1,4 @@
-// import fontAwesome from 'font-awesome-webpack';
+import fontAwesome from 'font-awesome-webpack';
 import React from 'react';
 import ReactDOM from 'react-dom';
 

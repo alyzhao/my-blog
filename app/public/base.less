@@ -1,12 +1,9 @@
-@screen-sm-max: 768px;
-@screen-md-max: 992px;
-@screen-lg-max: 1200px;
-
-@active-blue: #38b7ea;
-@fontColor-normal: #565a5f;
+@screen-sm-min: 768px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
 
  //->LESS代码
-.transition(@property: all; @duration: .2s; @function: ease; @delay: 0s;) {
+.transition(@property: all; @duration: .2s; @function: linear; @delay: 0s;) {
 	-webkit-transition: @property @duration @function @delay;
 	-moz-transition: @property @duration @function @delay;
 	-ms-transition: @property @duration @function @delay;

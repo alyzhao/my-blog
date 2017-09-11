@@ -1,35 +1,47 @@
 @import (reference) "../public/style/base.less";
 
 .header{
+	@media (max-width: @screen-sm-max) {
+		.main-nav {
+			display: none
+		}
+	}
+
+	@media (max-width: @screen-md-max) {
+
+	}
+
+	@media (max-width: @screen-lg-max) {
+		.header-main {
+			width: 100% !important;
+		}
+	}
+
 	width: 100%;
 	height: 65px;
 	position: relative;
+	background-color: #fff;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 	.header-main {
-		width: 100%;
+		width: 1200px;
 		margin: 0 auto;
-		a, a:visited {
-			.transition;
-			white-space: nowrap;
-	        color: #565a5f;
-			& :hover {
-	    	    color: #38b7ea;
-			}
-		}
+		// logo
 		.logo {
-		    white-space: nowrap;
-	        display: inline-block;
+	        display: block;
 	        float: left;
+	        .transition;
+	        color: @fontColor-normal;
+	        &:hover {
+	        	color: @active-blue;
+	        }
 	        i {
         	    margin-right: 5px;
 				display: inline-block;
 			    width: 40px;
 				height: 40px;
-				background-repeat: no-repeat;
-				background-image: url("../public/img/logo.png");
-				-webkit-background-size: 40px 40px;
-				-moz-background-size: 40px 40px;
-				background-size: 40px 40px;
-	        }
+				background: url("../public/img/logo-40X40.png") no-repeat;
+			}
 	        .site-title {
 	        	font-size: 16px;
 				display: inline-block;
@@ -37,42 +49,66 @@
 				font-weight: 600;
 	        }
 		}
-		.logo, .main-nav {
+		.logo, .main-nav, .search-form {
 			height: 40px;
 			line-height: 40px;
 			padding: 12px 15px;
 		}
-
+		// pc导航
 		.main-nav {
-			display: none;
 			float: left;
 			a {
+				.transition;
 				white-space: nowrap;
 	            float: left;
 			    display: block;
 			    padding: 0 15px;
-		        font-weight: 300;
+		        font-weight: 400;
+		        color: @fontColor-normal;
+		        &:hover{
+		        	color: @active-blue;
+		        }
 			}
 		}
-
-	}
-
-
-
-	@media (min-width: @screen-lg-min) {
-		.header-main {
-			width: 1200px;
+		// 搜索
+		.search-form {
+			float: right;
+			form {
+				position: relative;
+			}
+			button[type="submit"] {
+				.transition;
+			    top: 50%;
+			    right: 15px;
+			    border: none;
+			    cursor: pointer;
+			    margin-top: -7px;
+			    background: none;
+			    position: absolute;
+			    font-size: 14px;
+			    &:active {
+			    	outline: none;
+			    }
+			    &:hover {
+			    	color: @active-blue;
+			    }
+			}
+			input[type="text"] {
+				.transition;
+				width: 205px;
+				padding: 0 30px 0 15px;
+				line-height: 36px;
+				height: 36px;
+				border-radius: 20px;
+				color: @fontColor-normal;
+				outline: none;
+				font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+				border: 1px solid #eceff2;
+				box-sizing: border-box;
+				&:focus {
+					border-color: @active-blue;
+				}
+			}
 		}
 	}
-
-	@media (min-width: @screen-md-min) {
-
-	}
-
-	@media (min-width: @screen-sm-min) {
-		.main-nav {
-			display: block;
-		}
-	}
-
 }
