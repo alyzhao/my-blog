@@ -47,9 +47,20 @@ class SearchForm extends React.Component {
 			</div>
 		);
 	}
-
 }
 
+class MobileNavGroup extends React.Component {
+	constructor(props) {
+		super(props);
+		
+	}
+
+	render() {
+		return (
+		
+		);
+	}
+}
 
 
 class Header extends React.Component {
