@@ -8,6 +8,9 @@
 		.search-form {
 			display: none !important;
 		}
+		.mb-navgroup {
+			display: block !important;
+		}
 	}
 
 	@media (max-width: @screen-md-max) {
@@ -52,7 +55,7 @@
 				font-weight: 600;
 	        }
 		}
-		.logo, .main-nav, .search-form {
+		.logo, .main-nav, .search-form, .mb-navgroup {
 			height: 40px;
 			line-height: 40px;
 			padding: 12px 15px;
@@ -110,6 +113,32 @@
 				box-sizing: border-box;
 				&:focus {
 					border-color: @active-blue;
+				}
+			}
+		}
+		// 移动端搜索导航
+		.mb-navgroup {
+			float: right;
+			display: none;
+			.mb-search, .mb-bar {
+				font-size: 18px;
+				padding: 10px;
+			}
+			// 点击弹出搜索组件
+			.mb-search-main {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				filter: blur(8px);
+				top: 0;
+				left: 0;
+				background-color: rgba(0, 0, 0, .15);
+				z-index: 11;
+				.top {
+					width: 100%;
+					height: 65px;
+					position: relative;
+					background-color: #fff;
 				}
 			}
 		}

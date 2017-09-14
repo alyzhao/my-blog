@@ -1,5 +1,6 @@
 import React from 'react';
 
+// 网站logo
 function Logo(props) {
 	return (
 		<a href="/" className="logo">
@@ -9,6 +10,7 @@ function Logo(props) {
 	);
 }
 
+// pc端的导航
 function Navbar(props) {
 	return (
 		<nav className="main-nav">
@@ -18,7 +20,7 @@ function Navbar(props) {
 		</nav>
 	);
 }
-
+// pc端的搜索框
 class SearchForm extends React.Component {
 	constructor(props) {
 		super(props);
@@ -49,20 +51,49 @@ class SearchForm extends React.Component {
 	}
 }
 
+// 移动端搜索
 class MobileNavGroup extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			onSearch: false,
+			onNavopen: false
+		}
 		
+		this.searchClick = this.searchClick.bind(this);
+		this.navbarClick = this.navbarClick.bind(this);		
+	}
+
+	searchClick() {
+
+	}
+
+	navbarClick() {
+
 	}
 
 	render() {
 		return (
-		
+			<div className="mb-navgroup">
+				<i className="mb-search fa fa-search" onClick={this.searchClick}></i>
+				<i className="mb-bar fa fa-bars" onClick={this.navbarClick}></i>
+			</div>
 		);
 	}
 }
 
+function MobileSearch(props) {
+	return (
+		<div class="mb-search-main">
+			<div class="top">
+				<input  />
+			</div>
+		</div>
+	);
+}
 
+
+// header组件
 class Header extends React.Component {
 	constructor(props) {
 		super(props);
@@ -75,6 +106,7 @@ class Header extends React.Component {
 					<Logo />
 					<Navbar />
 					<SearchForm />
+					<MobileNavGroup />
 				</div>
 			</div>
 		);
