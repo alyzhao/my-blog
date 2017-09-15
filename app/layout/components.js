@@ -61,15 +61,25 @@ class MobileNavGroup extends React.Component {
 		}
 		
 		this.searchClick = this.searchClick.bind(this);
-		this.navbarClick = this.navbarClick.bind(this);		
+		this.navbarClick = this.navbarClick.bind(this);	
+		this.cancelMobileSearch = this.cancelMobileSearch.bind(this);
 	}
 
 	searchClick() {
-
+		this.setState(prevState => ({
+			onSearch: !prevState.onSearch
+		}));
+		console.log(this.state.onSearch);
 	}
 
 	navbarClick() {
 
+	}
+
+	cancelMobileSearch() {
+		this.setState({
+			onSearch: false
+		});
 	}
 
 	render() {
@@ -77,7 +87,7 @@ class MobileNavGroup extends React.Component {
 			<div className="mb-navgroup">
 				<i className="mb-search fa fa-search" onClick={this.searchClick}></i>
 				<i className="mb-bar fa fa-bars" onClick={this.navbarClick}></i>
-				<MobileSearch />
+				{this.state.onSearch ? (<MobileSearch cancelMobileSearch={this.cancelMobileSearch} />) : ''}
 			</div>
 		);
 	}
@@ -102,12 +112,11 @@ class MobileSearch extends React.Component {
 	render() {
 		return (
 			<div className="mb-search-main">
-				<div className="top">
-					<form onSubmit={this.handleSubmit}>
-						<input type="text" value={this.state.keywords} onChange={this.handleChange} placeholder="搜索" />
-						<button type="submit" className="fa fa-search"></button>
-					</form>
-				</div>
+				<form onSubmit={this.handleSubmit}>
+					<input type="text" value={this.state.keywords} onChange={this.handleChange} placeholder="搜索" />
+					<button type="submit" className="fa fa-search"></button>
+					<button type="button" onClick={this.props.cancelMobileSearch}>取消</button>
+				</form>
 			</div>
 		);
 	}
