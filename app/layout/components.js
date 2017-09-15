@@ -77,20 +77,43 @@ class MobileNavGroup extends React.Component {
 			<div className="mb-navgroup">
 				<i className="mb-search fa fa-search" onClick={this.searchClick}></i>
 				<i className="mb-bar fa fa-bars" onClick={this.navbarClick}></i>
+				<MobileSearch />
+			</div>
+		);
+	}
+}
+class MobileSearch extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { keywrds: '' };
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	handleSubmit() {
+		console.log('mb search');
+	}
+
+	handleChange(event) {
+		this.setState({ keywords: event.target.value });
+	}
+
+	render() {
+		return (
+			<div className="mb-search-main">
+				<div className="top">
+					<form onSubmit={this.handleSubmit}>
+						<input type="text" value={this.state.keywords} onChange={this.handleChange} placeholder="搜索" />
+						<button type="submit" className="fa fa-search"></button>
+					</form>
+				</div>
 			</div>
 		);
 	}
 }
 
-function MobileSearch(props) {
-	return (
-		<div class="mb-search-main">
-			<div class="top">
-				<input  />
-			</div>
-		</div>
-	);
-}
+
 
 
 // header组件
