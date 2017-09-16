@@ -55,39 +55,18 @@ class SearchForm extends React.Component {
 class MobileNavGroup extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			onSearch: false,
-			onNavopen: false
-		}
-		
-		this.searchClick = this.searchClick.bind(this);
-		this.navbarClick = this.navbarClick.bind(this);	
-		this.cancelMobileSearch = this.cancelMobileSearch.bind(this);
 	}
-
-	searchClick() {
-		this.setState(prevState => ({
-			onSearch: !prevState.onSearch
-		}));
-		console.log(this.state.onSearch);
-	}
-
-	navbarClick() {
-
-	}
-
-	cancelMobileSearch() {
-		this.setState({
-			onSearch: false
-		});
-	}
-
 	render() {
+		console.log(this.props.onMbNavbar);
+		let barStyle = {};
+		if (this.props.onMbNavbar) {
+			barStyle.backgroundColor = '#e2e2e2';
+		}
+		console.log(barStyle);
 		return (
 			<div className="mb-navgroup">
-				<i className="mb-search fa fa-search" onClick={this.searchClick}></i>
-				<i className="mb-bar fa fa-bars" onClick={this.navbarClick}></i>
-				{this.state.onSearch ? (<MobileSearch cancelMobileSearch={this.cancelMobileSearch} />) : ''}
+				<i className="mb-search fa fa-search" onClick={this.props.toggleMbSearch}></i>
+				<i className="mb-bar fa fa-bars" style={barStyle} onClick={this.props.toggleMbNavbar}></i>
 			</div>
 		);
 	}
@@ -115,28 +94,66 @@ class MobileSearch extends React.Component {
 				<form onSubmit={this.handleSubmit}>
 					<input type="text" value={this.state.keywords} onChange={this.handleChange} placeholder="搜索" />
 					<button type="submit" className="fa fa-search"></button>
-					<button type="button" onClick={this.props.cancelMobileSearch}>取消</button>
+					<button type="button" onClick={this.props.toggleMbSearch}>取消</button>
 				</form>
 			</div>
 		);
 	}
 }
+
 class MobileNavbar extends React.Component {
 	constructor(props) {
 		super(props);
 		
 	}
 
-	
+	componentDidMount() {
+		console.log(this.div_bar);
+		let that = this;
+		setTimeout(function() {
+			that.div_bar.style.height = '117px';
+			
+		}, 300);
+	}
+
+	render() {
+		return (
+			<div className="mb-navbar" ref={ (div_bar) => { this.div_bar = div_bar; } }>
+				<ul>
+					<li><i className="fa fa-home"></i><a href="/">首页</a></li>
+					<li><i className="fa fa-delicious"></i><a href="/archives/">归档</a></li>
+					<li><i className="fa fa-coffee"></i><a href="/about/">关于</a></li>
+				</ul>
+			</div>
+		);
+	}
+
 }
-
-
 
 
 // header组件
 class Header extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			onMbSearch: false,
+			onMbNavbar: false
+		}
+
+		this.toggleMbSearch = this.toggleMbSearch.bind(this);
+		this.toggleMbNavbar = this.toggleMbNavbar.bind(this);
+	}
+
+	toggleMbSearch() {
+		this.setState(prevState => ({
+			onMbSearch: !prevState.onMbSearch
+		}));
+	}
+
+	toggleMbNavbar() {
+		this.setState(prevState => ({
+			onMbNavbar: !prevState.onMbNavbar
+		}));
 	}
 
 	render() {
@@ -146,7 +163,9 @@ class Header extends React.Component {
 					<Logo />
 					<Navbar />
 					<SearchForm />
-					<MobileNavGroup />
+					<MobileNavGroup onMbNavbar={this.state.onMbNavbar} toggleMbSearch={this.toggleMbSearch} toggleMbNavbar={this.toggleMbNavbar} />
+					{ this.state.onMbSearch ? <MobileSearch toggleMbSearch={this.toggleMbSearch} /> : ''}
+					{ this.state.onMbNavbar ? <MobileNavbar toggleMbNavbar={this.toggleMbNavbar} /> : ''}
 				</div>
 			</div>
 		);
