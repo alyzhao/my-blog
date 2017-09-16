@@ -121,6 +121,14 @@ class MobileSearch extends React.Component {
 		);
 	}
 }
+class MobileNavbar extends React.Component {
+	constructor(props) {
+		super(props);
+		
+	}
+
+	
+}
 
 
 
