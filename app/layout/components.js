@@ -1,4 +1,6 @@
 import React from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
+
 
 // 网站logo
 function Logo(props) {
@@ -32,7 +34,6 @@ class SearchForm extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		console.log('submit');
 	}
 
 	handleChange(event) {
@@ -57,12 +58,10 @@ class MobileNavGroup extends React.Component {
 		super(props);
 	}
 	render() {
-		console.log(this.props.onMbNavbar);
 		let barStyle = {};
 		if (this.props.onMbNavbar) {
 			barStyle.backgroundColor = '#e2e2e2';
 		}
-		console.log(barStyle);
 		return (
 			<div className="mb-navgroup">
 				<i className="mb-search fa fa-search" onClick={this.props.toggleMbSearch}></i>
@@ -107,18 +106,9 @@ class MobileNavbar extends React.Component {
 		
 	}
 
-	componentDidMount() {
-		console.log(this.div_bar);
-		let that = this;
-		setTimeout(function() {
-			that.div_bar.style.height = '117px';
-			
-		}, 300);
-	}
-
 	render() {
 		return (
-			<div className="mb-navbar" ref={ (div_bar) => { this.div_bar = div_bar; } }>
+			<div className="mb-navbar">
 				<ul>
 					<li><i className="fa fa-home"></i><a href="/">首页</a></li>
 					<li><i className="fa fa-delicious"></i><a href="/archives/">归档</a></li>
@@ -129,7 +119,6 @@ class MobileNavbar extends React.Component {
 	}
 
 }
-
 
 // header组件
 class Header extends React.Component {
@@ -146,13 +135,15 @@ class Header extends React.Component {
 
 	toggleMbSearch() {
 		this.setState(prevState => ({
-			onMbSearch: !prevState.onMbSearch
+			onMbSearch: !prevState.onMbSearch,
+			onMbNavbar: false
 		}));
 	}
 
 	toggleMbNavbar() {
 		this.setState(prevState => ({
-			onMbNavbar: !prevState.onMbNavbar
+			onMbNavbar: !prevState.onMbNavbar,
+			onMbSearch: false
 		}));
 	}
 
@@ -165,7 +156,9 @@ class Header extends React.Component {
 					<SearchForm />
 					<MobileNavGroup onMbNavbar={this.state.onMbNavbar} toggleMbSearch={this.toggleMbSearch} toggleMbNavbar={this.toggleMbNavbar} />
 					{ this.state.onMbSearch ? <MobileSearch toggleMbSearch={this.toggleMbSearch} /> : ''}
-					{ this.state.onMbNavbar ? <MobileNavbar toggleMbNavbar={this.toggleMbNavbar} /> : ''}
+					<CSSTransitionGroup transitionName="mbnavbar" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+						{ this.state.onMbNavbar ? <MobileNavbar toggleMbNavbar={this.toggleMbNavbar} /> : ''}
+					</CSSTransitionGroup>
 				</div>
 			</div>
 		);
