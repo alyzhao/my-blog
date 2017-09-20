@@ -195,6 +195,11 @@ use node to develop my own technology and life blog.
 	(1). 响应式布局
 		移动 < 768px < 平板 < 992px < 中等屏幕 < 1200px < 大屏幕
 	
+> 9月20日 
+	(1). 把主页的主要内容搭建出来
+		
+	(2). 了解 react-router, Redux, 实现 react 的数据交互
+		Redux: 快照>? wtf
 
 ## 页面设计, 结构设计
 	参考网页: 
@@ -227,6 +232,8 @@ use node to develop my own technology and life blog.
 
 	2. 生活文章表 articalDaily
 
+	3. 怎样做 react 的数据交互? https://segmentfault.com/a/1190000004436824
+
 ## 站点分析
 
 	1. logo, title 等
@@ -237,11 +244,8 @@ use node to develop my own technology and life blog.
 		slogan: 青春须早为 岂能长少年 | 博观而约取 厚积而薄发
 		shortcut icon: 尝试express的中间件
 
-
 ## 功能设计
 
 	1. markdown 博文编辑系统, 代码高亮插件
 
 	2. 评论系统
-
-
