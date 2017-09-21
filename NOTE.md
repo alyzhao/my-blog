@@ -210,6 +210,9 @@ use node to develop my own technology and life blog.
 	http://infullstack.com/lsm.html
 	https://www.liujunyang.com/
 
+	http://sora1.coding.me/
+	http://chaoo.oschina.io/
+
 	1. 主页
 		左侧: 文章
 		右侧: 近期文章, 分类, 标签

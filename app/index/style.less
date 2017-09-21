@@ -1,7 +1,17 @@
 @import (reference) "../public/style/base.less";
 
 @media (max-width: @screen-sm-max) {
-
+	.title-wrap {
+		h1 {
+			font-size: 26px !important;
+		}
+		h2 {
+			font-size: 16px !important;
+		}
+	}
+	.top-intro {
+		height: 175px !important;
+	}
 }
 
 @media (max-width: @screen-md-max) {
@@ -14,13 +24,57 @@
 	
 }
 
+// 头部大图及内容
+.top-intro {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 450px;
+    .banner-wrap {
+    	position: relative;
+	    height: 100%;
+	    overflow: hidden;
+	    .banner-img {
+    	    width: 100%;
+    	    position: absolute;
+    	    top: 50%;
+    	    left: 50%;
+    	    transform: translateY(-50%) translateX(-50%);
+		}
+		.title-wrap {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+			h1, h2{
+				text-align: center;
+				color: #fff;
+				font-weight: 700;
+				padding: 5px 0;
+			}
+			h1 {
+				font-size: 46px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+		}
+	}
+}	
+
+// 首页主要内容
 .container{
 	margin: 0 auto;
 	width: 1200px;
 	.left, .right {
-		width: 60%;
 		float: left;
 		padding: 50px 30px;
+		box-sizing: border-box;
+	}
+	.left {
+		width: 60%;
+	}
+	.right {
+		width: 40%;
 	}
 	.artical-cell{
 		

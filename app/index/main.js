@@ -9,7 +9,7 @@ import './style.less';
 const render = function(Component) {
 	ReactDOM.render(
 		<AppContainer>
-			<Component userage="22" />
+			<Component />
 		</AppContainer>,
 		document.getElementById('app')
 	)
