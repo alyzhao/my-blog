@@ -36,6 +36,7 @@ class Article extends React.Component {
 				{ this.props.articleImgUrl ? <div className="article-imgwrap"><img src={this.props.articleImgUrl} /></div> : ''}
 				<div className="article-con">
 					<h1 className="title"><a href="/article/" target="_blank">{this.props.articleTitle}</a></h1>
+					
 				</div>
 			</div>
 		);
