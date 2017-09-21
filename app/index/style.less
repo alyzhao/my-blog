@@ -76,7 +76,26 @@
 	.right {
 		width: 40%;
 	}
-	.artical-cell{
-		
+	.article-cell{
+		width: 100%;
+		background-color: #fff;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+		.article-imgwrap {
+			width: 100%;
+			img {
+				width: 100%;
+			}
+		}
+		.article-con {
+			padding: 20px;
+			h1 a {
+				.transition;
+				color: @fontColor-normal;
+				font-size: 26px;
+				&:hover {
+					color: @active-blue;
+				}
+			}
+		}
 	}
 }
