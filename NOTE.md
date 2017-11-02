@@ -201,6 +201,9 @@ use node to develop my own technology and life blog.
 	(2). 了解 react-router, Redux, 实现 react 的数据交互
 		Redux: 快照>? wtf
 
+> 10月7日 
+	(1). 今天再次回归这个项目
+
 ## 页面设计, 结构设计
 	参考网页: 
 	http://blog.zhangruipeng.me/hexo-theme-icarus/		
