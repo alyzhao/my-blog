@@ -4,7 +4,7 @@ use node express react to build my blog
 ## 记录
 - 安装express
 - 构建项目目录
-	```
+```
 	`-- root
 	  +-- models
 	  +-- app 					-- 开发目录, js, less, img 静态资源都在这儿
@@ -12,6 +12,10 @@ use node express react to build my blog
 	  | | +-- main.jsx 			-- 每个页面的主入口文件, webpack 的 entry 文件
 	  | | +-- components.jsx 	-- react 组件文件
 	  | | `-- style.less 		-- 样式文件
+	  | +-- layout				-- ejs 中头部导航和底部导航页面
+	  | | +-- main.js 			
+	  | | +-- components.jsx    
+	  | | `-- style.less
 	  | `-- public	 			-- 公共静态资源存放目录
 	  |   +-- img
 	  |   +-- js
@@ -28,11 +32,11 @@ use node express react to build my blog
 	  +-- .babelrc
 	  +-- packaage.json
 	  `-- webpack.config.js
+```
 - 构建 express 服务器, 入口文件 app.js, 使用 ejs 模板引擎, 
 	- 安装 ejs
 	- 安装 serve-static
 	- 安装 
-
 	- 安装 morgan, 用来监听请求
 	- 安装 nodemon, 监听文件修改, 自动重启服务
 - 安装 webpack , 打包会把所有用到的静态资源放到一个入口文件`[name].bundle.js`, 所以用`react`开发应把`views`分离出来
@@ -43,10 +47,8 @@ use node express react to build my blog
 		- file-loader      加载图片, 字体
 		- font-awesome 		安装字体文件
 		- font-awesome-webpack 
-
 		- webpack-dev-middleware   			-- 这只是将 bundle 打包的文件放入服务器请求, 与 express 无关
 		- webpack-hot-middleware
-
 	- 配置 webpack.config.js
 - 安装 react react-dom react-hot-loader, `npm install --save-dev react-hot-loader@3.0.0-beta.6` 必须指定版本否则默认安装是1.x版本
 	- 安装 `react-transition-group`, `npm install react-transition-group@1.x --save`, 一定要安装1.x版本否则无法使用
