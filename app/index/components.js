@@ -58,6 +58,19 @@ class Article extends React.Component {
 	}
 }
 
+// 近期文章组件
+class RecentArticle extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			<div className="recent-article"></div>
+		);
+	}
+}
+
 // 首页的内容
 class IndexComponent extends React.Component {
 	constructor(props) {
@@ -66,6 +79,24 @@ class IndexComponent extends React.Component {
 			articleList: [
 				{
 					articleId: 1,
+					articleTitle: '文章标题测试',
+					articleImgUrl: '/images/ArticlePic/music.jpg',
+					articleDate: '2015-02-03',
+					articleTag: '分类测试',
+					articleTagId: '0',
+					articleDescription: 'Redux 是一个改变状态(state)的模型，这个模型通过一个单向操作的方式来改变状态。现在网上教程一言不合上来就是 Redux + React 的综合运用，经常搞的人一脸懵逼。其实 Redux 和 React 完全解耦，并不是 Redux 非得和 React结合才能使用，而只是 React 结合 Redux 会事半功倍。本系列主要也讲得这个。'
+				}, 
+				{
+					articleId: 2,
+					articleTitle: '文章标题测试',
+					articleImgUrl: '/images/ArticlePic/music.jpg',
+					articleDate: '2015-02-03',
+					articleTag: '分类测试',
+					articleTagId: '0',
+					articleDescription: 'Redux 是一个改变状态(state)的模型，这个模型通过一个单向操作的方式来改变状态。现在网上教程一言不合上来就是 Redux + React 的综合运用，经常搞的人一脸懵逼。其实 Redux 和 React 完全解耦，并不是 Redux 非得和 React结合才能使用，而只是 React 结合 Redux 会事半功倍。本系列主要也讲得这个。'
+				},
+				{
+					articleId: 3,
 					articleTitle: '文章标题测试',
 					articleImgUrl: '/images/ArticlePic/music.jpg',
 					articleDate: '2015-02-03',
