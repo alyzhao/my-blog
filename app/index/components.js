@@ -4,7 +4,6 @@ import Banner from './banner.jpg';
 class TopIntro extends React.Component {
 	constructor(props) {
 		super(props);
-		
 	}
 
 	render() {
@@ -58,6 +57,15 @@ class Article extends React.Component {
 	}
 }
 
+function RecentArticleItem(props) {
+	return (
+		<li className="normal">
+			<span>{props.index}</span>
+			<p className="article-title"><a href={'/article/' + props.articleId} target="_blank">{props.articleTitle}</a></p>
+		</li>
+	)
+}
+
 // 近期文章组件
 class RecentArticle extends React.Component {
 	constructor(props) {
@@ -65,8 +73,54 @@ class RecentArticle extends React.Component {
 	}
 
 	render() {
+		console.log(this.props.recentArticleList);
+		const recentArticleList = this.props.recentArticleList.map((article, index) => 
+			<RecentArticleItem index={index + 1} key={article.articleId} articleId={article.articleId} articleTitle={article.articleTitle} />
+		)
+		console.log(recentArticleList);
 		return (
-			<div className="recent-article"></div>
+			<div className="left-cell">
+				<p className="title">近期文章</p>
+				<div className="con">
+					<ul className="recent-list">
+						{recentArticleList}
+					</ul>
+				</div>
+			</div>
+		);
+	}
+}
+
+class CategoryItem extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			<div className="category-cell">
+				<div className="title">
+					
+				</div>
+			</div>
+		);
+	}
+}
+
+// 分类
+class Category extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			<div className="left-cell">
+				<p className="title">分类</p>
+				<div className="con">
+
+				</div>
+			</div>
 		);
 	}
 }
@@ -104,23 +158,84 @@ class IndexComponent extends React.Component {
 					articleTagId: '0',
 					articleDescription: 'Redux 是一个改变状态(state)的模型，这个模型通过一个单向操作的方式来改变状态。现在网上教程一言不合上来就是 Redux + React 的综合运用，经常搞的人一脸懵逼。其实 Redux 和 React 完全解耦，并不是 Redux 非得和 React结合才能使用，而只是 React 结合 Redux 会事半功倍。本系列主要也讲得这个。'
 				}
+			],
+			recentArticleList: [
+				{
+					articleId: 1,
+					articleTitle: '文章标题测试'					
+				},
+				{
+					articleId: 2,
+					articleTitle: '文章标题测试'										
+				},
+				{
+					articleId: 3,
+					articleTitle: '文章标题测试'										
+				},
+				{
+					articleId: 4,
+					articleTitle: '文章标题测试'										
+				},
+				{
+					articleId: 5,
+					articleTitle: '文章标题测试'										
+				}
+			],
+			category: [
+				{
+					categoryId: 1,
+					categoryName: '分类测试1',
+					recentArticles: [
+						{
+							articleId: 1,
+							articleTitle: '文章标题测试1'
+						},
+						{
+							articleId: 2,
+							articleTitle: '文章标题测试2'
+						},
+						{
+							articleId: 2,
+							articleTitle: '文章标题测试2'
+						}
+					],
+					isAll: false
+				},
+				{
+					categoryId: 2,
+					categoryName: '分类测试2',
+					recentArticles: [
+						{
+							articleId: 1,
+							articleTitle: '文章标题测试1'
+						},
+						{
+							articleId: 2,
+							articleTitle: '文章标题测试2'
+						},
+						{
+							articleId: 2,
+							articleTitle: '文章标题测试2'
+						}
+					],
+					isAll: true
+				}
 			]
 		}
 	}
 
 	render() {
-
 		const articleList = this.state.articleList.map( article => 
 			<Article 
 			key={article.articleId}
 			articleId={article.articleId}
-			articleTitle={article.articleTitle} 
+			articleTitle={article.articleTitle}
 			articleImgUrl={article.articleImgUrl} 
-			articleDate={article.articleDate} 
-			articleTag={article.articleTag} 
+			articleDate={article.articleDate}
+			articleTag={article.articleTag}
 			articleTagId={article.articleTagId}
 			articleDescription={article.articleDescription} />
-		); 
+		);
 
 		return (
 			<div>
@@ -130,7 +245,7 @@ class IndexComponent extends React.Component {
 						{articleList}
 					</div>
 					<div className="right">
-						
+						<RecentArticle recentArticleList={this.state.recentArticleList} />
 					</div>
 				</div>
 			</div>

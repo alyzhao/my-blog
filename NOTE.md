@@ -220,7 +220,7 @@ use node to develop my own technology and life blog.
 		左侧: 文章
 		右侧: 近期文章, 分类, 标签
 
-	2. 文章详情页
+	2. 文章详情页 '/article/id'
 
 	3. 归档页
 
