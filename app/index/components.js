@@ -1,5 +1,7 @@
 import React from 'react';
 import Banner from './banner.jpg';
+import { CSSTransitionGroup } from 'react-transition-group';
+
 // 头图组件
 class TopIntro extends React.Component {
 	constructor(props) {
@@ -91,17 +93,40 @@ class RecentArticle extends React.Component {
 	}
 }
 
+function CategoryArticle(props) {
+	const cateArticleList = props.recentArticles.map(article => 
+		<li key={article.articleId}>
+			<a href={'/article/' + article.articleId} target="_blank">{article.articleTitle}</a>
+		</li>
+	)
+	return (
+		<ul>
+			{cateArticleList}
+		</ul>
+	);
+}
+
+// 分类项
 class CategoryItem extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			slideDown: true
+		}
 	}
 
 	render() {
+		const category = this.props.categoryItem;
 		return (
 			<div className="category-cell">
-				<div className="title">
-					
+				<div className="cat-title">
+					<i className={'cate ' + category.iconClassName}></i>
+					<span>{category.categoryName}</span>
+					<i className={'arrow fa fa-angle-down' + (this.state.slideDown ? ' active' : '')}></i>
 				</div>
+				<CSSTransitionGroup transitionName="cate-article" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+					<CategoryArticle recentArticles={category.recentArticles} />
+				</CSSTransitionGroup>
 			</div>
 		);
 	}
@@ -114,11 +139,15 @@ class Category extends React.Component {
 	}
 
 	render() {
+		const categoryList = this.props.categoryList.map(category => 
+			<CategoryItem key={category.categoryId} categoryItem={category} />
+		)
+
 		return (
 			<div className="left-cell">
 				<p className="title">分类</p>
 				<div className="con">
-
+					{categoryList}
 				</div>
 			</div>
 		);
@@ -184,7 +213,8 @@ class IndexComponent extends React.Component {
 			category: [
 				{
 					categoryId: 1,
-					categoryName: '分类测试1',
+					categoryName: '生活感想',
+					iconClassName: 'fa fa-rocket',
 					recentArticles: [
 						{
 							articleId: 1,
@@ -195,7 +225,7 @@ class IndexComponent extends React.Component {
 							articleTitle: '文章标题测试2'
 						},
 						{
-							articleId: 2,
+							articleId: 3,
 							articleTitle: '文章标题测试2'
 						}
 					],
@@ -203,7 +233,8 @@ class IndexComponent extends React.Component {
 				},
 				{
 					categoryId: 2,
-					categoryName: '分类测试2',
+					categoryName: '前端实验室',
+					iconClassName: 'fa fa-gamepad',
 					recentArticles: [
 						{
 							articleId: 1,
@@ -214,7 +245,7 @@ class IndexComponent extends React.Component {
 							articleTitle: '文章标题测试2'
 						},
 						{
-							articleId: 2,
+							articleId: 3,
 							articleTitle: '文章标题测试2'
 						}
 					],
@@ -246,6 +277,7 @@ class IndexComponent extends React.Component {
 					</div>
 					<div className="right">
 						<RecentArticle recentArticleList={this.state.recentArticleList} />
+						<Category categoryList={this.state.category} />
 					</div>
 				</div>
 			</div>
