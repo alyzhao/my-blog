@@ -98,9 +98,14 @@ function CategoryArticle(props) {
 		<li key={article.articleId}>
 			<a href={'/article/' + article.articleId} target="_blank">{article.articleTitle}</a>
 		</li>
-	)
+	);
+	if (!props.isAll) {
+		cateArticleList.push(
+			<li className="more" key="more"><a href={'/category/' + props.categoryId} target="_blank">查看更多</a></li>
+		);
+	}
 	return (
-		<ul>
+		<ul className="recent-art">
 			{cateArticleList}
 		</ul>
 	);
@@ -125,7 +130,7 @@ class CategoryItem extends React.Component {
 					<i className={'arrow fa fa-angle-down' + (this.state.slideDown ? ' active' : '')}></i>
 				</div>
 				<CSSTransitionGroup transitionName="cate-article" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
-					<CategoryArticle recentArticles={category.recentArticles} />
+					<CategoryArticle recentArticles={category.recentArticles} isAll={category.isAll} categoryId={category.categoryId} />
 				</CSSTransitionGroup>
 			</div>
 		);
@@ -146,7 +151,7 @@ class Category extends React.Component {
 		return (
 			<div className="left-cell">
 				<p className="title">分类</p>
-				<div className="con">
+				<div className="con-nopadding">
 					{categoryList}
 				</div>
 			</div>

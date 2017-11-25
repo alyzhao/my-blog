@@ -216,16 +216,17 @@
 					}
 				}
 			}
+		}
+		.con-nopadding {
 			.category-cell {
-				padding: 0 10px;
-				.transition;
 				.cat-title {
+					.transition;
 					&:hover {
 						background-color: #ddd;	
 					}
 					display: flex;
 					align-items: center; 
-					padding: 10px 0;
+					padding: 10px 25px;
 					cursor: pointer;
 					.cate {
 					    font-size: 18px;
@@ -238,6 +239,33 @@
 					.arrow {
 						font-size: 18px;
 						font-weight: bold;
+					}
+				}
+				.recent-art {
+					border-bottom: 1px solid #ddd;
+					border-top: 1px solid #ddd;
+					li {
+						display: flex;
+						a {
+							color: @fontColor-normal;
+							padding: 8px 28px;
+							flex-grow: 1;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							word-break: break-all;
+							.transition;
+							&:hover {
+								background-color: #ddd;
+							}
+						}
+						&.more {
+							justify-content: center;
+							a {
+								flex-grow: 0;
+								padding: none;
+							}
+						}
 					}
 				}
 			}

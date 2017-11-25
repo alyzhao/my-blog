@@ -224,9 +224,13 @@ use node to develop my own technology and life blog.
 
 	3. 归档页
 
-	4. 搜索页, 标签页
+	4. 搜索页
+
+	5. 标签页 '/tags/tagname' 
 
 	5. 关于
+
+	6. 文章分类页 '/category/id'
 
 ## 数据库设计
 
