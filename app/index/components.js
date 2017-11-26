@@ -81,7 +81,7 @@ class RecentArticle extends React.Component {
 		)
 		console.log(recentArticleList);
 		return (
-			<div className="left-cell">
+			<div className="right-cell">
 				<p className="title">近期文章</p>
 				<div className="con">
 					<ul className="recent-list">
@@ -116,21 +116,28 @@ class CategoryItem extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			slideDown: true
+			slideDown: false
 		}
+		this.toggleSlide = this.toggleSlide.bind(this);
+	}
+
+	toggleSlide() {
+		this.setState(prevState => ({
+			slideDown: !prevState.slideDown
+		}))
 	}
 
 	render() {
 		const category = this.props.categoryItem;
 		return (
 			<div className="category-cell">
-				<div className="cat-title">
+				<div className="cat-title" onClick={this.toggleSlide}>
 					<i className={'cate ' + category.iconClassName}></i>
 					<span>{category.categoryName}</span>
 					<i className={'arrow fa fa-angle-down' + (this.state.slideDown ? ' active' : '')}></i>
 				</div>
-				<CSSTransitionGroup transitionName="cate-article" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
-					<CategoryArticle recentArticles={category.recentArticles} isAll={category.isAll} categoryId={category.categoryId} />
+				<CSSTransitionGroup transitionName="cate-article" transitionEnterTimeout={300} transitionLeaveTimeout={300} component="div">
+					{this.state.slideDown ? <CategoryArticle recentArticles={category.recentArticles} isAll={category.isAll} categoryId={category.categoryId} /> : ''}
 				</CSSTransitionGroup>
 			</div>
 		);
@@ -149,10 +156,41 @@ class Category extends React.Component {
 		)
 
 		return (
-			<div className="left-cell">
+			<div className="right-cell">
 				<p className="title">分类</p>
 				<div className="con-nopadding">
 					{categoryList}
+				</div>
+			</div>
+		);
+	}
+}
+
+// 小标签组件
+function TagsItem(props) {
+	return (
+		<a className="tag-icon" href={"/tags/" + props.tagId} target="_blank">
+			<i className="fa fa-tags"></i>
+			{props.tagName}
+		</a>
+	)
+} 
+// 标签云
+class Tags extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		const tagsList = this.props.tagsList.map(tag => 
+			<TagsItem key={tag.tagId} tagId={tag.tagId} tagName={tag.tagName} />
+		)
+
+		return (
+			<div className="right-cell">
+				<p className="title">标签云</p>
+				<div className="con">
+					{tagsList}
 				</div>
 			</div>
 		);
@@ -256,6 +294,16 @@ class IndexComponent extends React.Component {
 					],
 					isAll: true
 				}
+			],
+			tagsList: [
+				{
+					tagId: 1,
+					tagName: 'node'
+				},
+				{
+					tagId: 2,
+					tagName: 'javascript'
+				}
 			]
 		}
 	}
@@ -283,6 +331,7 @@ class IndexComponent extends React.Component {
 					<div className="right">
 						<RecentArticle recentArticleList={this.state.recentArticleList} />
 						<Category categoryList={this.state.category} />
+						<Tags tagsList={this.state.tagsList} />
 					</div>
 				</div>
 			</div>

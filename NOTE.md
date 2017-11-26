@@ -204,6 +204,8 @@ use node to develop my own technology and life blog.
 > 10月7日 
 	(1). 今天再次回归这个项目
 
+> 11月26日
+
 ## 页面设计, 结构设计
 	参考网页: 
 	http://blog.zhangruipeng.me/hexo-theme-icarus/		
