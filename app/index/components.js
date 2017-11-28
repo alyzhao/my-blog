@@ -303,6 +303,14 @@ class IndexComponent extends React.Component {
 				{
 					tagId: 2,
 					tagName: 'javascript'
+				},
+				{
+					tagId: 3,
+					tagName: '前端'
+				},
+				{
+					tagId: 4,
+					tagName: '嵌入式开发'
 				}
 			]
 		}
