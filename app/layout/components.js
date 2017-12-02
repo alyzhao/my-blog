@@ -164,4 +164,24 @@ class Header extends React.Component {
 	}
 }
 
-export { Header };
+// footer 组件
+class Footer extends React.Component {
+	render() {
+		return (
+			<div className="footer">
+				<div className="con">
+					<div className="social">
+						<a href="https://github.com/alyzhao" target="_blank"><i className="fa fa-github"></i></a>
+						<a href="" target="_blank"><i className="fa fa-facebook"></i></a>
+						<a href="" target="_blank"><i className="fa fa-weibo"></i></a>
+						<a href="" target="_blank"><i className="fa fa-twitter"></i></a>
+						<a href="" target="_blank"><i className="fa fa-behance"></i></a>
+					</div>
+					<p className="copyright">Copyright © 2018 Allen Zhao.</p>
+				</div>
+			</div>
+		);
+	}
+}
+
+export { Header, Footer };

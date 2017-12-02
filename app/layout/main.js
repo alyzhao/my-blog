@@ -6,21 +6,28 @@ import { AppContainer } from 'react-hot-loader';
 import './style.less';
 import '../public/style/public.css';
 
-import { Header } from './components.js';
+import { Header, Footer } from './components.js';
 
-const render = function(Component) {
+const render = function() {
 	ReactDOM.render(
 		<AppContainer>
-			<Component />
+			<Header />
 		</AppContainer>,
 		document.getElementById('header')
 	)
+	ReactDOM.render(
+		<AppContainer>
+			<Footer />
+		</AppContainer>,
+		document.getElementById('footer')
+	)
 };
 
-render(Header);
+render();
 
 if(module.hot) {
 	module.hot.accept('./components', () => {
-		render(Header);
+		render();
+		// render(Footer, 'footer');
 	});
 }
