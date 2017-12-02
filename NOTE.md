@@ -209,6 +209,8 @@ use node to develop my own technology and life blog.
 > 11月28日
 	(1). :after 的伪类必须加上 `content: " "`
 
+> 12月2日
+
 ## 页面设计, 结构设计
 	参考网页: 
 	http://blog.zhangruipeng.me/hexo-theme-icarus/		

@@ -75,11 +75,9 @@ class RecentArticle extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.recentArticleList);
 		const recentArticleList = this.props.recentArticleList.map((article, index) => 
 			<RecentArticleItem index={index + 1} key={article.articleId} articleId={article.articleId} articleTitle={article.articleTitle} />
 		)
-		console.log(recentArticleList);
 		return (
 			<div className="right-cell">
 				<p className="title">近期文章</p>
@@ -197,6 +195,43 @@ class Tags extends React.Component {
 	}
 }
 
+// 分页器
+class Pagination extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		const pageList = [];
+		for (let i = 0; i < this.props.pagination.totalPage; i++) {
+			let pageSpan;
+			if (i == this.props.pagination.page - 1) {
+				pageSpan = <span key={i + 1}>
+					<a className="on">{i + 1}</a>
+				</span>
+			} else {
+				pageSpan = <span key={i + 1}>
+					<a onClick={(e) => this.props.goPage(i + 1)}>{i + 1}</a>
+				</span>
+			}
+			pageList.push(pageSpan);
+		}
+		let page = this.props.pagination.page;
+		let totalPage = this.props.pagination.totalPage;
+		return (
+			<div className="pagination">
+				{page > 1 && 
+					<span><a onClick={(e) => this.props.goPage(page - 1)}>« Prev</a></span>
+				}
+				{pageList}
+				{page < totalPage &&
+					<span><a onClick={(e) => this.props.goPage(page + 1)}>Next »</a></span>
+				}
+			</div>
+		);
+	}
+}
+
 // 首页的内容
 class IndexComponent extends React.Component {
 	constructor(props) {
@@ -230,7 +265,8 @@ class IndexComponent extends React.Component {
 					articleTagId: '0',
 					articleDescription: 'Redux 是一个改变状态(state)的模型，这个模型通过一个单向操作的方式来改变状态。现在网上教程一言不合上来就是 Redux + React 的综合运用，经常搞的人一脸懵逼。其实 Redux 和 React 完全解耦，并不是 Redux 非得和 React结合才能使用，而只是 React 结合 Redux 会事半功倍。本系列主要也讲得这个。'
 				}
-			],
+			]
+			,
 			recentArticleList: [
 				{
 					articleId: 1,
@@ -312,8 +348,23 @@ class IndexComponent extends React.Component {
 					tagId: 4,
 					tagName: '嵌入式开发'
 				}
-			]
+			],
+			pagination: {
+				page: 1,
+				totalPage: 3
+			}
 		}
+		this.goPage = this.goPage.bind(this);
+	}
+
+	goPage(page) {
+		console.log('go page: ' + page);
+		this.setState({
+			pagination: {
+				page: page,
+				totalPage: 4
+			}
+		})
 	}
 
 	render() {
@@ -335,6 +386,11 @@ class IndexComponent extends React.Component {
 				<div className="container clearfix">
 					<div className="left">
 						{articleList}
+						{
+							this.state.pagination.totalPage > 1 ? 
+							<div className="pagination-wrap"><Pagination pagination={this.state.pagination} goPage={this.goPage} /></div>
+							: ''
+						}
 					</div>
 					<div className="right">
 						<RecentArticle recentArticleList={this.state.recentArticleList} />

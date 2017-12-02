@@ -1,5 +1,6 @@
 @import (reference) "../public/style/base.less";
-
+@import "../public/style/pagination.less";
+ 
 @media (max-width: @screen-sm-max) {
 	.title-wrap {
 		h1 {
@@ -73,7 +74,7 @@
 }	
 
 // 首页主要内容
-.container{
+.container {
 	margin: 0 auto;
 	width: 1200px;
 	.left, .right {
@@ -83,6 +84,9 @@
 	}
 	.left {
 		width: 65%;
+		.pagination-wrap {
+
+		}
 	}
 	.right {
 		width: 35%;
