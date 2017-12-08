@@ -15,4 +15,4 @@ class AboutComponent extends React.Component {
 	}
 }
 
-expprt { AboutComponent };
+export { AboutComponent };

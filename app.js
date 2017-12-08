@@ -32,7 +32,7 @@ if (app.get('env') === 'development') {
 }
 
 // 设置查找动态文件的目录, app.set('views') 可以是数组的形式, 并渲染时会按顺序匹配并渲染
-let viewsDirectories = ['./views/index/'];
+let viewsDirectories = ['./views/index/', './views/about/'];
 app.set('views', viewsDirectories.map((dir) => {
 	return path.join(__dirname, dir);
 }));

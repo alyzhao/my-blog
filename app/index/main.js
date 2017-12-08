@@ -5,7 +5,7 @@ import { AppContainer } from 'react-hot-loader';
 
 import { IndexComponent } from './components.js';
 import './style.less';
- 
+
 const render = function(Component) {
 	ReactDOM.render(
 		<AppContainer>
