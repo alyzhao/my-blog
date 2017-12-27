@@ -77,7 +77,7 @@ use node to develop my own technology and life blog.
 				}
 			}
 
-			- 使用 webpack-dev-server 服务器工具, 当代码修改时能刷新, 但是是全部刷新, 这个打包的文件只是在缓存当中
+			- (这里使用了 express 用了中间件, 并没有用 webpack-dev-server) 使用 webpack-dev-server 服务器工具, 当代码修改时能刷新, 但是是全部刷新, 这个打包的文件只是在缓存当中
 			$ npm install --save-dev webpack-dev-server
 
 			- 启用 HRM 热加载, 不需要刷新页面, 这仅仅是热跟新模块的, 主入口文件变了依旧刷新
