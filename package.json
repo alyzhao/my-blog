@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gegehehehe/my-blog.git"
+    "url": "git+https://github.com/alyzhao/my-blog.git"
   },
   "keywords": [
     "node",
@@ -21,9 +21,9 @@
   "author": "Allen Zhao",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gegehehehe/my-blog/issues"
+    "url": "https://github.com/alyzhao/my-blog/issues"
   },
-  "homepage": "https://github.com/gegehehehe/my-blog#readme",
+  "homepage": "https://github.com/alyzhao/my-blog#readme",
   "dependencies": {
     "ejs": "^2.5.7",
     "express": "^4.15.4",
