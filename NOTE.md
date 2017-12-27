@@ -210,6 +210,12 @@ use node to develop my own technology and life blog.
 	(1). :after 的伪类必须加上 `content: " "`
 
 > 12月2日
+	(1). 首页的静态内容都搭建好了, 准备建数据库了
+
+	(2). 了解下 react-router, reduex
+
+> 12月26日
+	(1). 用 react-router 重构页面
 
 ## 页面设计, 结构设计
 	参考网页: 
