@@ -217,6 +217,9 @@ use node to develop my own technology and life blog.
 > 12月26日
 	(1). 用 react-router 重构页面
 
+> 1月8日
+	react-router 官方用例已经看完, 整理一下重构页面 
+
 ## 页面设计, 结构设计
 	参考网页: 
 	http://blog.zhangruipeng.me/hexo-theme-icarus/		
