@@ -6,7 +6,6 @@ const serveStatic = require('serve-static');
 const morgan = require('morgan');
 // const favicon = require('serve-favicon');
 
-
 // webpack相关
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
