@@ -46,5 +46,13 @@ module.exports = {
 		path: path.join(__dirname, './build/'),
 		filename: "[name].bundle.js", 
 		publicPath: '/build/'		// 测试只是打包的文件, 在 webpack-dev-middleware 中的前缀, 如果吧devtool 改成 'source-map', 这个需要改成 url 的形式
-	}
+	},
+	resolve: {
+    alias: {
+      'components': path.join(__dirname, './app/src/components'),
+      'assets': path.join(__dirname, './app/src/assets'),
+      '@': path.join(__dirname, './app/src')
+    },
+    extensions: ['.js', '.jsx', '.json', '.css', '.less']
+  }
 }
