@@ -1,0 +1,13 @@
+a {
+  text-decoration: none;
+}
+
+p, ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #565a5f;
+  background: #f5f8f9;
+}

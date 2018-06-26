@@ -166,6 +166,10 @@ use node to develop my own technology and life blog.
 			]
 		}
 
+		- npm install extract-text-webpack-plugin --save-dev
+
+		- npm install url-loader --save-dev 使用 url-loader 替代 file-loader, url-loader 内置了 file-loader 
+
 > 8月29日
 	(1). 之前几天熟悉了 webpack + react 的开发模式, 今天查看之前的文档, express + webpack + react 的模式
 	(2). 继续熟悉 react, react 的数据绑定 

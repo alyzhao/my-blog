@@ -3,11 +3,16 @@ const webpack = require('webpack');
 
 const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true'; 	// 这是使用hot-middleware必须配置的项目
 
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
 	entry: {
-		index: ['react-hot-loader/patch', hotMiddlewareScript, path.join(__dirname, './app/index/main.js')],
-		header: ['react-hot-loader/patch', hotMiddlewareScript, path.join(__dirname, './app/layout/main.js')],
-		about: ['react-hot-loader/patch', hotMiddlewareScript, path.join(__dirname, './app/about/main.js')]
+		index: [
+			'react-hot-loader/patch',
+			hotMiddlewareScript,
+			path.join(__dirname, './app/src/assets/less/common.css'),
+			path.join(__dirname, './app/src/main.js')
+		],
 	},
 	devtool: 'inline-source-map',   // 跟踪错误堆栈
 	module: {
@@ -21,26 +26,36 @@ module.exports = {
 			},
 			{
 				test: /\.(css|less)$/,
-				use: [
-					'style-loader',
-					'css-loader',
-					'less-loader'
-				]
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: ['css-loader', 'less-loader']
+				})
 			},
 			{
-				test: /\.(png|svg|jpg|gif)$/,
-				use: [
-					'file-loader'
-				]
+				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+				use: {
+					loader: 'url-loader',
+					options: {
+						limit: 10000,
+						name: 'images/[name].[hash:7].[ext]'
+					}
+				}
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2)\w*/,
-				loader: 'file-loader?publicPath=/build/&outputPath=font'
+				use: {
+					loader: 'url-loader',
+					options: {
+						limit: 10000,
+						name: 'fonts/[name].[hash:7].[ext]'
+					}
+				}
 			}
 		]
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		new ExtractTextPlugin({filename: 'style/app.css'})
 	],
 	output: {
 		path: path.join(__dirname, './build/'),
@@ -51,6 +66,7 @@ module.exports = {
     alias: {
       'components': path.join(__dirname, './app/src/components'),
       'assets': path.join(__dirname, './app/src/assets'),
+      'containers': path.join(__dirname, './app/src/containers'),
       '@': path.join(__dirname, './app/src')
     },
     extensions: ['.js', '.jsx', '.json', '.css', '.less']

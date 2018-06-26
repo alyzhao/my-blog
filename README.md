@@ -53,7 +53,8 @@ use node express react to build my blog
 - 安装 react react-dom react-hot-loader, `npm install --save-dev react-hot-loader@3.0.0-beta.6` 必须指定版本否则默认安装是1.x版本
 	- 安装 `react-transition-group`, `npm install react-transition-group@1.x --save`, 一定要安装1.x版本否则无法使用
 - 安装 babel, npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0
-	- 配置 .babelrc 
+	- 配置 .babelrc
+- 安装 reac-router-dom 使用路由
 
 - 编码 app.js
 - 编写前端 react 页面
