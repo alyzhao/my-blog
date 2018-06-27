@@ -10,8 +10,8 @@ module.exports = {
 		index: [
 			'react-hot-loader/patch',
 			hotMiddlewareScript,
-			path.join(__dirname, './app/src/assets/less/common.css'),
-			path.join(__dirname, './app/src/main.js')
+			path.join(__dirname, './frontend/assets/less/common.css'),
+			path.join(__dirname, './frontend/main.js')
 		],
 	},
 	devtool: 'inline-source-map',   // 跟踪错误堆栈
@@ -64,10 +64,11 @@ module.exports = {
 	},
 	resolve: {
     alias: {
-      'components': path.join(__dirname, './app/src/components'),
-      'assets': path.join(__dirname, './app/src/assets'),
-      'containers': path.join(__dirname, './app/src/containers'),
-      '@': path.join(__dirname, './app/src')
+      'components': path.join(__dirname, './frontend/components'),
+      'assets': path.join(__dirname, './frontend/assets'),
+      'containers': path.join(__dirname, './frontend/containers'),
+      'constants': path.join(__dirname, './frontend/constants'),
+      '@': path.join(__dirname, './frontend')
     },
     extensions: ['.js', '.jsx', '.json', '.css', '.less']
   }

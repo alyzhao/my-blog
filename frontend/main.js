@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 
 import { AppContainer } from 'react-hot-loader';
 
-import fontAwesome from 'font-awesome-webpack';
+import 'font-awesome/css/font-awesome.css';
+
 import 'normalize.css';
 
 import App from './App';

@@ -1,5 +1,6 @@
 import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
+import { Link } from 'react-router-dom';
 
 import './style.less';
 
@@ -15,11 +16,12 @@ function Logo(props) {
 
 // pc端的导航
 function Navbar(props) {
+
+  const navLinks = props.links.map(item => <Link to={item.link} key={item.link}>{item.name}</Link>)
+
   return (
     <nav className="main-nav">
-      <a href="/">首页</a>
-      <a href="/archives/">归档</a>
-      <a href="/about/">关于</a>
+      {navLinks}
     </nav>
   );
 }
@@ -131,7 +133,9 @@ class Header extends React.Component {
 
     this.toggleMbSearch = this.toggleMbSearch.bind(this);
     this.toggleMbNavbar = this.toggleMbNavbar.bind(this);
+
   }
+
 
   toggleMbSearch() {
     this.setState(prevState => ({
@@ -152,7 +156,7 @@ class Header extends React.Component {
       <div className="header">
         <div className="header-main clearfix">
           <Logo />
-          <Navbar />
+          <Navbar links={this.props.links}/>
           <SearchForm />
           <MobileNavGroup onMbNavbar={this.state.onMbNavbar} toggleMbSearch={this.toggleMbSearch} toggleMbNavbar={this.toggleMbNavbar} />
           { this.state.onMbSearch ? <MobileSearch toggleMbSearch={this.toggleMbSearch} /> : ''}

@@ -230,6 +230,12 @@ use node to develop my own technology and life blog.
 
     2. 使用 Normalize.css 初始化 css
 
+> 2018年6月27日
+	1. 把 react link 加上去, 并且路由全部由前端来定
+
+	2. 文章详情页
+
+
 
 ## 页面设计, 结构设计
 	参考网页: 
@@ -258,6 +264,8 @@ use node to develop my own technology and life blog.
 	5. 关于
 
 	6. 文章分类页 '/category/id'
+
+	7. 后台应该怎么来写？ 发布文章这些
 
 ## 数据库设计
 

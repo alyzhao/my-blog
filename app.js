@@ -31,7 +31,7 @@ if (app.get('env') === 'development') {
 }
 
 // 设置查找动态文件的目录, app.set('views') 可以是数组的形式, 并渲染时会按顺序匹配并渲染
-let viewsDirectories = ['./views/index/', './views/about/'];
+let viewsDirectories = ['./views/index/'];
 
 app.set('views', viewsDirectories.map((dir) => {
 	return path.join(__dirname, dir);
@@ -46,11 +46,12 @@ if (app.get('env') === 'development') {
 	app.locals.pretty = true;	// 不压缩html
 }
 
-require('./routes/route')(app); 	// 加载路由
+require('./app/routes')(app); 	// 加载路由
 
 // 因为使用了 webpack-dev-middleware, development 环境下由 前面这个中间件处理 webpack 打包在缓存中的文件, production 下需要设置成dist
 // 实质上 development 下静态资源应该都不用 express 来处理, 但是在 production 下需要 serve-static
-app.use(serveStatic(path.join(__dirname, './dist'), {
+// 设置静态资源的目录
+app.use(serveStatic(path.join(__dirname, './public'), {
 	'cacheControl': false 	// 这是个可选 options
 }));
 
