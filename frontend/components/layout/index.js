@@ -112,9 +112,14 @@ class MobileNavbar extends React.Component {
     return (
       <div className="mb-navbar">
         <ul>
-          <li><i className="fa fa-home"></i><a href="/">首页</a></li>
-          <li><i className="fa fa-delicious"></i><a href="/archives/">归档</a></li>
-          <li><i className="fa fa-coffee"></i><a href="/about/">关于</a></li>
+          {
+            this.props.links.map(item => (
+              <li key={item.link}>
+                <i className={'fa ' + item.icon}></i>
+                <Link to={item.link}>{item.name}</Link>
+              </li>
+            ))
+          }
         </ul>
       </div>
     );
@@ -161,7 +166,7 @@ class Header extends React.Component {
           <MobileNavGroup onMbNavbar={this.state.onMbNavbar} toggleMbSearch={this.toggleMbSearch} toggleMbNavbar={this.toggleMbNavbar} />
           { this.state.onMbSearch ? <MobileSearch toggleMbSearch={this.toggleMbSearch} /> : ''}
           <CSSTransitionGroup transitionName="mbnavbar" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
-            { this.state.onMbNavbar ? <MobileNavbar toggleMbNavbar={this.toggleMbNavbar} /> : ''}
+            { this.state.onMbNavbar ? <MobileNavbar toggleMbNavbar={this.toggleMbNavbar} links={this.props.links} /> : ''}
           </CSSTransitionGroup>
         </div>
       </div>

@@ -1,12 +1,15 @@
 const headerNavLink = [{
   name: '首页',
-  link: '/'
+  link: '/',
+  icon: 'fa-home'
 }, {
   name: '归档',
-  link: '/archives'
+  link: '/archives',
+  icon: 'fa-delicious'
 }, {
   name: '关于',
-  link: '/about'
+  link: '/about',
+  icon: 'fa-coffee'
 }]
 
 export { headerNavLink }
