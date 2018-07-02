@@ -19,7 +19,7 @@ const app = express();
 
 // webpack
 // app.set('env', 'production');
-if (app.get('env') === 'development') {	
+if (app.get('env') === 'development') {
 	console.log(app.get('env'));
 	app.use(webpackDevMiddleware(compiler, {
 		noInfo: true,

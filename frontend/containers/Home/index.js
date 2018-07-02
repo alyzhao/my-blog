@@ -1,5 +1,6 @@
 import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
+import { Link } from 'react-router-dom';
 import './style.less';
 
 import Banner from 'assets/images/banner.jpg';
@@ -37,7 +38,7 @@ class Article extends React.Component {
 			<div className="article-cell">
 				{ this.props.articleImgUrl ? <div className="article-imgwrap"><img src={this.props.articleImgUrl} /></div> : ''}
 				<div className="article-con">
-					<h1 className="title"><a href={'/article/' + this.props.articleId} target="_blank">{this.props.articleTitle}</a></h1>
+					<h1 className="title"><Link to={'/article/' + this.props.articleId}>{this.props.articleTitle}</Link></h1>
 					<div className="tags-con">
 						<span>
 							<i className="fa fa-calendar"></i>
@@ -45,7 +46,7 @@ class Article extends React.Component {
 						</span>
 						<span>
 							<i className="fa fa-folder"></i>
-							<a href={'/category/' + this.props.articleTagId} className="catename" target="_blank">{this.props.articleTag}</a>
+							<Link to={'/category/' + this.props.articleTagId} className="catename" target="_blank">{this.props.articleTag}</Link>
 						</span>
 					</div>
 					<p className="article-des">
@@ -373,14 +374,14 @@ class IndexComponent extends React.Component {
 	render() {
 		const articleList = this.state.articleList.map( article => 
 			<Article 
-			key={article.articleId}
-			articleId={article.articleId}
-			articleTitle={article.articleTitle}
-			articleImgUrl={article.articleImgUrl} 
-			articleDate={article.articleDate}
-			articleTag={article.articleTag}
-			articleTagId={article.articleTagId}
-			articleDescription={article.articleDescription} />
+				key={article.articleId}
+				articleId={article.articleId}
+				articleTitle={article.articleTitle}
+				articleImgUrl={article.articleImgUrl} 
+				articleDate={article.articleDate}
+				articleTag={article.articleTag}
+				articleTagId={article.articleTagId}
+				articleDescription={article.articleDescription} />
 		);
 
 		return (
