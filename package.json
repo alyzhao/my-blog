@@ -32,6 +32,7 @@
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.3.1",
     "react-transition-group": "^1.2.0",
+    "redux": "^4.0.0",
     "serve-favicon": "^2.4.3",
     "serve-static": "^1.12.4"
   },

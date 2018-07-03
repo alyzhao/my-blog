@@ -235,7 +235,10 @@ use node to develop my own technology and life blog.
 
 	2. 文章详情页
 
+> 2018年7月3日
+	1. 文章详情页现在主要是找到能解析 markdown 的插件, 然后再读出来 html
 
+	2. 这一个星期把 文章详情页搭建完成
 
 ## 页面设计, 结构设计
 	参考网页: 
