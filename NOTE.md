@@ -240,6 +240,15 @@ use node to develop my own technology and life blog.
 
 	2. 这一个星期把 文章详情页搭建完成
 
+> 2018年7月7日
+	1. 文章详情页
+		- 首先要有一个 markdown 的编辑器
+
+		- 其次要有一个 markdown 的解析器, [marked](https://github.com/markedjs/marked)
+
+		- 语法高亮 [highlight.js](https://github.com/isagalaev/highlight.js)
+
+
 ## 页面设计, 结构设计
 	参考网页: 
 	http://blog.zhangruipeng.me/hexo-theme-icarus/		
