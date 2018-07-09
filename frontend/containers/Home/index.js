@@ -38,7 +38,7 @@ class Article extends React.Component {
 			<div className="article-cell">
 				{ this.props.articleImgUrl ? <div className="article-imgwrap"><img src={this.props.articleImgUrl} /></div> : ''}
 				<div className="article-con">
-					<h1 className="title"><Link to={'/article/' + this.props.articleId}>{this.props.articleTitle}</Link></h1>
+					<h1 className="title"><Link to={'/articles/' + this.props.articleId}>{this.props.articleTitle}</Link></h1>
 					<div className="tags-con">
 						<span>
 							<i className="fa fa-calendar"></i>
@@ -52,7 +52,7 @@ class Article extends React.Component {
 					<p className="article-des">
 						{this.props.articleDescription}
 					</p>
-					<div className="know-more"><a href={'/article/' + this.props.articleId} target="_blank">阅读更多</a></div>
+					<div className="know-more"><Link  to={'/articles/' + this.props.articleId} target="_blank">阅读更多</Link></div>
 					<div className="opera">
 						<a href={'/article/' + this.props.articleId + '/#comment'} target="_blank"><i className="fa fa-comment"></i>评论</a>
 						<a><i className="fa fa-share"></i>分享</a>
@@ -67,7 +67,7 @@ function RecentArticleItem(props) {
 	return (
 		<li className="normal">
 			<span>{props.index}</span>
-			<p className="article-title"><a href={'/article/' + props.articleId} target="_blank">{props.articleTitle}</a></p>
+			<p className="article-title"><a href={'/articles/' + props.articleId} target="_blank">{props.articleTitle}</a></p>
 		</li>
 	)
 }
