@@ -14,7 +14,7 @@ module.exports = {
 			path.join(__dirname, './frontend/main.js')
 		],
 	},
-	devtool: 'inline-source-map',   // 跟踪错误堆栈
+	devtool: 'cheap-source-map',   // 跟踪错误堆栈
 	module: {
 		rules: [
 			{
