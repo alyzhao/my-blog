@@ -46,14 +46,14 @@ if (app.get('env') === 'development') {
 	app.locals.pretty = true;	// 不压缩html
 }
 
-require('./app/routes')(app); 	// 加载路由
-
 // 因为使用了 webpack-dev-middleware, development 环境下由 前面这个中间件处理 webpack 打包在缓存中的文件, production 下需要设置成dist
 // 实质上 development 下静态资源应该都不用 express 来处理, 但是在 production 下需要 serve-static
 // 设置静态资源的目录
 app.use(serveStatic(path.join(__dirname, './public'), {
 	'cacheControl': false 	// 这是个可选 options
 }));
+
+require('./app/routes')(app); 	// 加载路由
 
 // app.use(favicon(path.join(__dirname, './dist', 'favicon.ico')));	// 保存在缓存中的 
 
