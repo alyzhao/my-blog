@@ -248,6 +248,14 @@ use node to develop my own technology and life blog.
 
 		- 语法高亮 [highlight.js](https://github.com/isagalaev/highlight.js)
 
+> 2018年7月18日
+	
+	[marked使用说明](https://www.jianshu.com/p/d182ea991609)
+
+	[marked + highlight](https://shuheikagawa.com/blog/2015/09/21/using-highlight-js-with-marked/)
+
+	[marked.js 简易说明](https://www.cnblogs.com/djtao/p/6224399.html)
+
 
 ## 页面设计, 结构设计
 	参考网页: 
