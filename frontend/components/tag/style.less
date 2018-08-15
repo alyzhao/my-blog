@@ -1,0 +1,45 @@
+.tag {
+  font-size: 12px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 400;
+  color: #fff;
+  height: 18px;
+  line-height: 18px;
+  padding: 0 5px 0 10px;
+  position: relative;
+  border-radius: 0 5px 5px 0;
+  margin-left: 9px;
+  font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+  cursor: pointer;
+  &:before {
+    content: " ";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: -18px;
+    border: 9px solid transparent;
+  }
+  &:after {
+    content: " ";
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.3);
+    position: absolute;
+    top: 7px;
+    left: 2px;
+  }
+  /* 标签 javascript */
+  &.javascript {
+    background-color: #ff945c;
+    &:before {
+      border-right-color: #ff945c;
+    }
+  }
+  &:hover {
+    opacity: .8;
+  }
+}

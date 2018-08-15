@@ -10,4 +10,5 @@ p, ul, ol {
 body {
   color: #565a5f;
   background: #f5f8f9;
+  font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
 }
