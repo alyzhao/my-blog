@@ -27,6 +27,8 @@
   "dependencies": {
     "ejs": "^2.5.7",
     "express": "^4.15.4",
+    "highlight.js": "^9.12.0",
+    "marked": "^0.4.0",
     "normalize.css": "^8.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
