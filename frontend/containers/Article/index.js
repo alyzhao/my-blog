@@ -11,32 +11,34 @@ class ArticleComponent extends React.Component {
       article: {
         title: '文章标题测试',
         tags: ['JavaScript', 'React', 'Vue', 'Node'],
-        content: `<h2 id="test">test</h2>
+        content: `<h3 id="test-">test 标题一</h3>
 <p>这是个测试 markdown</p>
-<h2 id="code">code</h2>
+<h3 id="">测试标题二</h3>
 <p>这也是一个测试 <code>code</code></p>
 <ol>
 <li><p>有序列表</p>
-<ul>
-<li>无需列表</li>
-</ul>
 </li>
 <li><p>有序列表</p>
-<ul>
-<li>无需列表</li>
-</ul>
 </li>
 <li><p>有序列表</p>
-<ul>
-<li>无需列表</li>
-</ul>
 </li>
 <li><p>有序列表</p>
+</li>
+<li><p>无序列表</p>
 <ul>
-<li>无需列表</li>
+<li>这是无序列表</li>
+<li>这是无序列表</li>
+<li>这是无序列表</li>
 </ul>
 </li>
 </ol>
+<ul>
+<li>无序列表</li>
+<li>无序列表</li>
+<li>无序列表</li>
+<li>无序列表</li>
+<li>无序列表</li>
+</ul>
 <blockquote>
 <p>use react to build blog</p>
 </blockquote>
@@ -61,7 +63,7 @@ class ArticleComponent extends React.Component {
               {articleTags}
             </div>
           </header>
-          <div className="article-content" dangerouslySetInnerHTML={{__html: this.state.article.content}}></div>
+          <div className="article-content markdown-body" dangerouslySetInnerHTML={{__html: this.state.article.content}}></div>
         </article>
       </div>
     );
