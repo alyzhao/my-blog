@@ -9,8 +9,7 @@
 		".editorconfig",
 		"NOTE.md",
 		"LICENSE",
-		".gitignore",
-		"build/**"
+		".gitignore"
 	],
 	"verbose": true,
 	"execMap": {

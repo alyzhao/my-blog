@@ -65,6 +65,11 @@ class ArticleComponent extends React.Component {
           </header>
           <div className="article-content markdown-body" dangerouslySetInnerHTML={{__html: this.state.article.content}}></div>
         </article>
+        <div className="article-directory">
+          <div className="directory">
+            
+          </div>
+        </div>
       </div>
     );
   }
