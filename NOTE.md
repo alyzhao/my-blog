@@ -256,6 +256,9 @@ use node to develop my own technology and life blog.
 
 	[marked.js 简易说明](https://www.cnblogs.com/djtao/p/6224399.html)
 
+> 2018年9月18日
+
+	今天和明天把文章侧边栏搭建起来
 
 ## 页面设计, 结构设计
 	参考网页: 
