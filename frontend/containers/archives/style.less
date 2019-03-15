@@ -1,0 +1,52 @@
+@import (reference) "../../assets/less/base.less";  // reference 不会编译引入的这个文件
+
+.archives {
+
+}
+
+.timeline {
+  padding: 20px;
+  .timeline-year {
+    background-color: @active-blue;
+    color: #fff;
+    align-items: center;
+    border-radius: 4px;
+    display: inline-flex;
+    font-size: 0.75rem;
+    height: 2em;
+    justify-content: center;
+    line-height: 1.5;
+    padding-left: 9px;
+    padding-right: 9px;
+    white-space: nowrap;
+  }
+  .timeline-articles {
+    margin-left: 21px;
+    padding-left: 14px;
+    padding-top: 14px;
+    border-left: 1px solid #dbdbdb;
+
+    .media {
+      display: flex;
+      &:before {
+        width: 9px;
+        height: 9px;
+        top: 50%;
+        background: #dbdbdb;
+        border-radius: 50%;
+      }
+      .article-img {
+        margin-right: 14px;
+        width: 64px;
+        height: 64px;
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+
+}
