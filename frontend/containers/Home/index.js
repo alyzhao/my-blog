@@ -79,7 +79,7 @@ class RecentArticle extends React.Component {
 	}
 
 	render() {
-		const recentArticleList = this.props.recentArticleList.map((article, index) => 
+		const recentArticleList = this.props.recentArticleList.map((article, index) =>
 			<RecentArticleItem index={index + 1} key={article.articleId} articleId={article.articleId} articleTitle={article.articleTitle} />
 		)
 		return (
@@ -96,7 +96,7 @@ class RecentArticle extends React.Component {
 }
 
 function CategoryArticle(props) {
-	const cateArticleList = props.recentArticles.map(article => 
+	const cateArticleList = props.recentArticles.map(article =>
 		<li key={article.articleId}>
 			<a href={'/article/' + article.articleId} target="_blank">{article.articleTitle}</a>
 		</li>
@@ -153,7 +153,7 @@ class Category extends React.Component {
 	}
 
 	render() {
-		const categoryList = this.props.categoryList.map(category => 
+		const categoryList = this.props.categoryList.map(category =>
 			<CategoryItem key={category.categoryId} categoryItem={category} />
 		)
 
@@ -176,7 +176,7 @@ function TagsItem(props) {
 			{props.tagName}
 		</a>
 	)
-} 
+}
 // 标签云
 class Tags extends React.Component {
 	constructor(props) {
@@ -184,7 +184,7 @@ class Tags extends React.Component {
 	}
 
 	render() {
-		const tagsList = this.props.tagsList.map(tag => 
+		const tagsList = this.props.tagsList.map(tag =>
 			<TagsItem key={tag.tagId} tagId={tag.tagId} tagName={tag.tagName} />
 		)
 
@@ -224,7 +224,7 @@ class Pagination extends React.Component {
 		let totalPage = this.props.pagination.totalPage;
 		return (
 			<div className="pagination">
-				{page > 1 && 
+				{page > 1 &&
 					<span><a onClick={(e) => this.props.goPage(page - 1)}>« Prev</a></span>
 				}
 				{pageList}
@@ -250,7 +250,7 @@ class IndexComponent extends React.Component {
 					articleTag: '分类测试',
 					articleTagId: '0',
 					articleDescription: 'Redux 是一个改变状态(state)的模型，这个模型通过一个单向操作的方式来改变状态。现在网上教程一言不合上来就是 Redux + React 的综合运用，经常搞的人一脸懵逼。其实 Redux 和 React 完全解耦，并不是 Redux 非得和 React结合才能使用，而只是 React 结合 Redux 会事半功倍。本系列主要也讲得这个。'
-				}, 
+				},
 				{
 					articleId: 2,
 					articleTitle: '文章标题测试',
@@ -274,29 +274,29 @@ class IndexComponent extends React.Component {
 			recentArticleList: [
 				{
 					articleId: 1,
-					articleTitle: '文章标题测试'					
+					articleTitle: '文章标题测试'
 				},
 				{
 					articleId: 2,
-					articleTitle: '文章标题测试'										
+					articleTitle: '文章标题测试'
 				},
 				{
 					articleId: 3,
-					articleTitle: '文章标题测试'										
+					articleTitle: '文章标题测试'
 				},
 				{
 					articleId: 4,
-					articleTitle: '文章标题测试'										
+					articleTitle: '文章标题测试'
 				},
 				{
 					articleId: 5,
-					articleTitle: '文章标题测试'										
+					articleTitle: '文章标题测试'
 				}
 			],
 			category: [
 				{
 					categoryId: 1,
-					categoryName: '生活感想',
+					categoryName: '边走边记',
 					iconClassName: 'fa fa-rocket',
 					recentArticles: [
 						{
@@ -372,12 +372,12 @@ class IndexComponent extends React.Component {
 	}
 
 	render() {
-		const articleList = this.state.articleList.map( article => 
-			<Article 
+		const articleList = this.state.articleList.map( article =>
+			<Article
 				key={article.articleId}
 				articleId={article.articleId}
 				articleTitle={article.articleTitle}
-				articleImgUrl={article.articleImgUrl} 
+				articleImgUrl={article.articleImgUrl}
 				articleDate={article.articleDate}
 				articleTag={article.articleTag}
 				articleTagId={article.articleTagId}
@@ -391,7 +391,7 @@ class IndexComponent extends React.Component {
 					<div className="left">
 						{articleList}
 						{
-							this.state.pagination.totalPage > 1 ? 
+							this.state.pagination.totalPage > 1 ?
 							<div className="pagination-wrap"><Pagination pagination={this.state.pagination} goPage={this.goPage} /></div>
 							: ''
 						}
@@ -407,4 +407,4 @@ class IndexComponent extends React.Component {
 	}
 }
 
-export default IndexComponent; 
+export default IndexComponent;
