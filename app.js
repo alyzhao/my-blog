@@ -1,7 +1,10 @@
 const path = require('path');
+const mongoose = require('mongoose');
 
 // express 相关
 const express = require('express');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const serveStatic = require('serve-static');
 const morgan = require('morgan');
 // const favicon = require('serve-favicon');
@@ -16,6 +19,38 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 // 启动配置
 const port = process.env.PORT || 3001;
 const app = express();
+
+// mongoDB
+const mongoStore = require('connect-mongo')(session);
+const {
+	mongoDB: {
+		user: dbUser,
+		password: dbPassword,
+		host: dbHost,
+		port: dbPort,
+		db: dbName,
+	},
+} = require('./app/config');
+const dbUrl = `mongodb://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`;
+// useNewUrlParser 不配置会报错, 不知道是干什么的
+mongoose.connect(dbUrl, { useNewUrlParser: true }, (err, res) => {
+	if (!err) {
+		console.log('connect mongodb success!');
+	} else {
+		console.log('connect mongodb failed!please check db username and password!');
+	}
+});
+mongoose.Promise = global.Promise;
+app.use(cookieParser());
+app.use(session({
+	secret: 'blog',
+	store: new mongoStore({
+		url: dbUrl,
+		collection: 'session',
+	}),
+	resave: true,
+	saveUninitialized: true,
+}));
 
 // webpack
 // app.set('env', 'production');
@@ -40,7 +75,7 @@ app.set('view engine', 'ejs');
 
 // 监听文件修改重启服务器
 if (app.get('env') === 'development') {
-	// 
+	//
 	app.set('showStackEror', true);
 	app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 	app.locals.pretty = true;	// 不压缩html
@@ -55,7 +90,7 @@ app.use(serveStatic(path.join(__dirname, './public'), {
 
 require('./app/routes')(app); 	// 加载路由
 
-// app.use(favicon(path.join(__dirname, './dist', 'favicon.ico')));	// 保存在缓存中的 
+// app.use(favicon(path.join(__dirname, './dist', 'favicon.ico')));	// 保存在缓存中的
 
 app.listen(port, function() {
 	console.log('app started on port ' + port);
