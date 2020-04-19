@@ -29,9 +29,9 @@ const ArticleSchema = new Schema({
   },
 });
 
-ArticleSchema.pre('save', saveMiddleware.bind(this));
+ArticleSchema.pre('save', saveMiddleware);
 
-ArticleSchema.pre('update', updateMiddleware.bind(this));
+ArticleSchema.pre('update', updateMiddleware);
 
 ArticleSchema.statics = {
   fetch,
