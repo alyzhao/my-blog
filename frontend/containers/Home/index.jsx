@@ -3,6 +3,8 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 import './style.less';
 
+import { fetchArticles } from '../../services/articles';
+
 import Banner from 'assets/images/banner.jpg';
 
 
@@ -372,7 +374,8 @@ class IndexComponent extends React.Component {
 	}
 
 	loadData = async () => {
-
+		const res = await fetchArticles(1, 5);
+		console.log(res);
 	}
 
 	componentDidMount() {
