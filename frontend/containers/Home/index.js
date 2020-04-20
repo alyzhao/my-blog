@@ -371,6 +371,14 @@ class IndexComponent extends React.Component {
 		})
 	}
 
+	loadData = async () => {
+
+	}
+
+	componentDidMount() {
+		this.loadData();
+	}
+
 	render() {
 		const articleList = this.state.articleList.map( article =>
 			<Article
