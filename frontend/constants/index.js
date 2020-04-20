@@ -12,4 +12,6 @@ const headerNavLink = [{
   icon: 'fa-coffee'
 }]
 
-export { headerNavLink }
+const HOST = '';
+
+export { headerNavLink, HOST };
